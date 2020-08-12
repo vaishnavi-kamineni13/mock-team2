@@ -1,0 +1,226 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>    
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- endbuild -->
+    <style>
+      .row-header {
+      margin: 0px auto;
+      padding: 0px 0px; }
+
+    .row-content {
+      margin: 0px auto;
+      padding: 50px 0px;
+      border-bottom: 1px ridge;
+      min-height: 400px; }
+
+    .footer {
+      background-color: #D1C4E9;
+      margin: 0px auto;
+      padding: 20px 0px auto; }
+
+    .jumbotron {
+      margin: 0px auto;
+      padding: 70px 30px;
+      background:#ffffff;
+      color: black; }
+
+    address {
+      font-size: 80%;
+      margin: 0px;
+      color: #0f0f0f; }
+
+    body {
+      padding: 50px 0px 0px 0px;
+      z-index: 0; }
+
+    .navbar-dark {
+      background-color: #512DA8; }
+
+    .tab-content {
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 10px; }
+
+    .card{
+        padding: 10px;
+        margin:10px;
+
+    }
+    .center {
+        padding: 70px 0;
+        text-align: center;
+    }
+    .carousel {
+      background: #512DA8; }
+      .carousel .carousel-item {
+        height: 300px; }
+        .carousel .carousel-item img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          min-height: 300px; }
+
+    #carouselButton {
+      right: 0px;
+      position: absolute;
+      bottom: 0px;
+      z-index: 1; }
+    .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+        width: 100%;
+    }
+    
+
+    </style>
+    <title>About page</title>
+</head>
+<body>
+  <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+      <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="Navbar">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item "><a class="nav-link" href="{% url 'index' %}"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                  <li class="nav-item active"><a class="nav-link" href="{% url 'about' %}"><span class="fa fa-info fa-lg"></span> About</a></li>
+              </ul>
+              {% if user.is_authenticated %}
+              <span class="navbar-text btn-sm bg-primary" style="margin-right:10px">
+                <a  href="{% url 'logout' %}" id="buttonLogout" type="button" role="button">
+                  <span class="fa fa-sign-out"></span> Logout</a>
+              </span>
+              {% else %}
+              <span class="navbar-text btn-sm bg-primary">
+                <a href="{% url 'register' %}" id="buttonLogin" type="button" role="button">
+                <span class="fa fa-sign-in"></span> Register</a>
+            </span>
+            <span>&nbsp;</span>
+            <span class="navbar-text btn-sm bg-primary">
+                <a  href="{% url 'login' %}" id="buttonLogin" type="button" role="button">
+                <span class="fa fa-sign-in"></span> Login</a>
+            </span>
+            {% endif %}
+
+              
+          </div>
+      </div>
+    </nav>
+  
+    <header >
+    
+    </header>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row ">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <h1 >What we do</h1>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-12" >
+                    <div class="card">
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{% static 'images/about.jpeg' %}" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <h5 class="card-title" style="color: blue;">U&I DONATE </h5>
+                            <h4 class="card-subtitle">Mission:A platform that connects donors with NGOs to donate their used items </h4>
+                            <p class="card-text">U&I is a for impacy movement focused on empowering & engaging 
+                                change makers across India to catalyze social transformation .
+                                Through our donation program, U&I wannts to create an interface between donors and donees
+                                .The people who want to donate something can register themselves in this site and
+                                can add the item to the donations. And the people who are in need of them can register
+                                 and add a request
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row">             
+                <div class="col-5  offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <!--<li><a href="#">Menu</a></li>
+                        <li><a href="#">Contact</a></li>-->
+                    </ul>
+                </div>  
+                <div class="col-6 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                    121, Clear Water Bay Road<br>
+                    Clear Water Bay, Kowloon<br>
+                    HONG KONG<br>
+                    <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+                    <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+                    <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:UandI@donation.net">UandI@donation.net</a>
+                </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
+                        <a class="btn btn-social-icon "href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright U and I</p>
+                </div>
+            </div>
+        </div>
+</footer>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            (function () {
+                var options = {
+                    whatsapp: "+91 7989598084" ,// WhatsApp number
+                    call_to_action: "Message Seller", // Call to action
+                    position: "right", // Position may be 'right' or 'left'
+                };
+                var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+                var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+                s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+                var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+            })();
+        </script>
+    </body>
+</html>
