@@ -53,9 +53,8 @@ def requests(request):
         item=request.POST['item']
         quantity=request.POST['quantity']
         address=request.POST['address']
-
         Requests.objects.create(username=username,item=item,quantity=quantity,address=address)
-
+        return redirect('donate')
     else:
         donate1=Donate.objects.all()
         return render(request,'requests.html',{'donate1':donate1})
@@ -72,6 +71,7 @@ def donate(request):
         desc=request.POST['desc']
         
         Donate.objects.create(username=username,mobilenumber=mobile,product=product,img=img,quantity=quantity,quality=quality,desc=desc)
+        return redirect('requests')
     else:
         requests1=Requests.objects.all()
         return render(request,'donate.html',{'requests1':requests1})
