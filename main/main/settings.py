@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'adpost',
+        'NAME': 'donation',
         'USER':'postgres',
         'PASSWORD':'Rgsv1234',
         'HOST':'localhost'

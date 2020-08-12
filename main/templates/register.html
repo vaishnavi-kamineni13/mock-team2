@@ -9,10 +9,10 @@
     <meta name="generator" content="Jekyll v4.0.1">
     <title>Register</title>
 
-    <link rel="canonical" href="{% static 'https://getbootstrap.com/docs/4.5/examples/sign-in/' %}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
 
     <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' %}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 
 
@@ -34,20 +34,26 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="main.css" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
   </head>
   <body class="text-center">
-    <form class="form-signin" method="POST">
-  <img class="mb-4" src="images\newsletter.jpg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">DONEE REGISTRATION</h1>
-  <input type="First Name" name="fname"  class="form-control top" placeholder="First Name" required autofocus>
-  <input type="Last Name" name="lname"  class="form-control top" placeholder="Last Name" required>
-  <input type="email"     name="Email"  class="form-control top" placeholder="Email" required>
-  <input type="tel"     name="Phone"  class="form-control top" placeholder="Contact number" required>
-  <input type="text"     name="Aadhar"  class="form-control top" placeholder="Aadhar number" required>
-  <input type="text"    name="Income"  class="form-control top" placeholder="Annual Income" required>
-  <input type="password"     name="email"  class="form-control top" placeholder="Password" required>
+  <form class="form-signin" method="POST" action='register'>
+    {% csrf_token %}
+  <h1 class="h3 mb-3 font-weight-normal">REGISTRATION</h1>
+  <input type="text" name="firstname"  class="form-control bottom" placeholder="First Name" required autofocus>
+  <input type="text" name="lastname"  class="form-control bottom" placeholder="Last Name" required>
+  <input type="text" name="username" class="form-control bottom" placeholder="User Name" required>
+  <input type="email" name="email"  class="form-control bottom" placeholder="Email" required>
+  <input type="text"  name="mobilenumber"  class="form-control bottom" placeholder="Contact number" required>
+  <input type="text"  name="aadhar"  class="form-control bottom" placeholder="Aadhar number" required>
+  <input type="password" name="password1"  class="form-control bottom" placeholder="Password" required>
+  <input type="password" name="password2"  class="form-control bottom" placeholder="Confirm Password" required>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 </form>
+<div>
+  {% for message in messages %}
+  <h3 style="font-size: 15px; color:red; padding-top:25px;text-align:center; padding-bottom:20px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{message}}</h3>
+  {% endfor %}
+</div>
 </body>
 </html>
