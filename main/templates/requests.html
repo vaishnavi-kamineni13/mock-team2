@@ -39,7 +39,7 @@
                     <p class="card-text">Contact:{{d.mobilenumber}}</p>
                     <p class="card-text">Quality:{{d.quality}}</p>
                 </div>
-                <a href="{% url 'requests' item=d.product quantity=d.quantity  %}" class="btn btn-primary sm">Accept</a>
+                <a href="{% url 'requests' %}" class="btn btn-primary sm">Accept</a>
             </div>
             {% endfor %}
         </div>
